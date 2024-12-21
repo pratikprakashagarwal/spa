@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filter Excel by SRC Numbers</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #downloadBtn, #copyBtn {
+            display: none;
+            margin-top: 10px;
+        }
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Filter Excel by SRC Numbers</h1>
+        
+        <form id="apiForm" class="mb-4">
+            <div class="form-group">
+                <label for="fps_id">FPS ID:</label>
+                <input type="text" id="fps_id" name="fps_id" class="form-control" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="month">Month:</label>
+                    <input type="number" id="month" name="month" class="form-control" min="1" max="12" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="year">Year:</label>
+                    <input type="number" id="year" name="year" class="form-control" required>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Get SRC Numbers</button>
+        </form>
+
+        <div id="response"></div>
+
+        <div class="form-group">
+            <label for="excelFile">Upload Excel File:</label>
+            <input type="file" id="excelFile" class="form-control-file" accept=".xlsx, .xls">
+        </div>
+
+        <div class="mt-4">
+            <button id="downloadBtn" class="btn btn-success btn-block">Download Filtered Excel</button>
+            <button id="copyBtn" class="btn btn-secondary btn-block">Copy to Clipboard</button>
+        </div>
+
+        <div id="filteredData" class="mt-4"></div>
+    </div>
+
+    <script type="module" src="./app.js"></script>
+</body>
+</html>
