@@ -11,7 +11,7 @@ document.getElementById('apiForm').addEventListener('submit', async function(eve
     const url = '/api/FPS_Trans_Details.jsp';
     const headers = {
         'Content-Type': 'application/x-www-form-urlencoded',
-        'Cookie': 'JSESSIONID=4TLgyidzCpulgKxUZmSMt8xl1blNtjLO3AlFvy46.scm-portal-1',
+        // 'Cookie': 'JSESSIONID=4TLgyidzCpulgKxUZmSMt8xl1blNtjLO3AlFvy46.scm-portal-1',
     };
     
     const body = new URLSearchParams({
