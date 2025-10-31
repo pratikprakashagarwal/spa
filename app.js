@@ -1,5 +1,6 @@
 import { read, utils, writeFile } from 'xlsx';
 let srcNumbersSet = {};
+let srcNumbersCount={};
 
 document.getElementById('apiForm').addEventListener('submit', async function(event) {
     event.preventDefault();
@@ -30,18 +31,18 @@ document.getElementById('apiForm').addEventListener('submit', async function(eve
 
         const html = await response.text();
         srcNumbersSet = extractSrcNumbers(html);
-        const srcNumbersCount = countSrcNumbers(html);
+        srcNumbersCount = countSrcNumbers(html);
         console.log(srcNumbersCount);
         const totalOccurrences = calculateTotalOccurrences(srcNumbersCount);
 
-        // <strong>Unique SRC Numbers:</strong> ${[...srcNumbersSet].join(', ')}
+        //   <strong>Unique SRC Numbers:</strong> ${[...srcNumbersSet].join(', ')}
         //     <br><br>
-        //     <strong>SRC Number Counts:</strong> <br>
+        //  <strong>SRC Number Counts:</strong> <br>
         //     ${Object.entries(srcNumbersCount).map(([srcNo, count]) => `${srcNo}: ${count}`).join('<br>')}
         //     <br><br></br>
 
         document.getElementById('response').innerHTML = `
-            
+          
             <strong>Total Occurrences:</strong> ${totalOccurrences}
         `;
 
